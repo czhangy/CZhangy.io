@@ -1,14 +1,15 @@
 <template>
-  <router-link to="/" class="home-button">
-    <i class="fa fa-home" aria-hidden="true"></i>
-  </router-link>
+  <NavModal />
   <router-view />
 </template>
 
 <script>
+import NavModal from "./components/NavModal";
 export default {
   name: "App",
-  components: {},
+  components: {
+    NavModal,
+  },
 };
 </script>
 
@@ -31,20 +32,25 @@ export default {
   outline: none;
 }
 
-.home-button {
-  font-size: 3rem;
-  color: white;
-  // Place in top corner
-  position: fixed;
-  top: 3rem;
-  right: 5rem;
-  z-index: 999;
-
-  &:hover {
-    color: gray;
-    transform: scale(1.1);
-  }
+// Clean up bounce on mobile
+html {
+  background-color: black;
 }
+
+// .home-button {
+//   font-size: 3rem;
+//   color: white;
+//   // Place in top corner
+//   position: fixed;
+//   top: 3rem;
+//   right: 5rem;
+//   z-index: 999;
+
+//   &:hover {
+//     color: gray;
+//     transform: scale(1.1);
+//   }
+// }
 
 @media screen and (max-width: 900px) {
   .home-button {

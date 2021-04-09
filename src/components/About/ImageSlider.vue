@@ -121,6 +121,7 @@ export default {
     .overlay {
       .content {
         font-size: 0.9rem;
+        line-height: 1.6;
       }
     }
   }

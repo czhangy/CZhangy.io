@@ -66,8 +66,6 @@ export default {
   justify-content: center;
   // Prevent highlighting
   user-select: none;
-  // Prevent bounce on mobile
-  overflow: hidden;
 
   .text {
     // Position elements

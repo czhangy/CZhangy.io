@@ -51,12 +51,11 @@ export default {
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  background-size: cover;
   // Typography
   color: white;
   // Prevent highlighting
   user-select: none;
-  // Prevent bounce
-  overflow: hidden;
 
   .title {
     // Spacing
@@ -93,7 +92,7 @@ export default {
 @media screen and (max-width: 900px) {
   .about {
     .text {
-      margin: 2rem 5rem;
+      width: 95%;
       padding: 0 3rem;
 
       .slide {
@@ -110,12 +109,18 @@ export default {
     }
 
     .text {
-      margin: 2rem 2.5rem;
 
       .slide {
         margin: 1rem 0;
       }
     }
+  }
+}
+
+// Workaround for background attachment on mobile
+@media (hover: none) {
+  .about {
+    background-attachment: initial;
   }
 }
 </style>
