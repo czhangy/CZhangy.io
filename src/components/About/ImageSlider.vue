@@ -77,7 +77,7 @@ export default {
     overflow: hidden;
     // Sizing
     width: 0;
-    height: 45vh;
+    height: max(450px, 45vh);
     // Position element
     display: flex;
     justify-content: center;
@@ -102,7 +102,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 950px) {
   .image-slider {
     .img {
       font-size: 3rem;
@@ -110,6 +110,7 @@ export default {
     .overlay {
       .content {
         font-size: 1.2rem;
+        line-height: 1.5;
       }
     }
   }

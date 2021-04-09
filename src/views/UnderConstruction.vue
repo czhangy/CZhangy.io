@@ -52,4 +52,17 @@ export default {
     font-size: 2rem;
   }
 }
+
+@media screen and (max-width: 650px) {
+  .main {
+
+    .title {
+      font-size: 3rem;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+    }
+  }
+}
 </style>

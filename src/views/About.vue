@@ -50,8 +50,13 @@ export default {
     url("~@/assets/img/home.png");
   background-position: center;
   background-attachment: fixed;
+  background-repeat: no-repeat;
   // Typography
   color: white;
+  // Prevent highlighting
+  user-select: none;
+  // Prevent bounce
+  overflow: hidden;
 
   .title {
     // Spacing
@@ -72,7 +77,7 @@ export default {
     // Container
     width: 80%;
     // Spacing
-    margin: 2rem 10rem 8rem 10rem;
+    margin: 0rem 10rem 2rem 10rem;
     padding: 0 5rem;
 
     .slide {
@@ -85,11 +90,15 @@ export default {
 }
 
 // Media Queries
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .about {
     .text {
+      margin: 2rem 5rem;
       padding: 0 3rem;
-      font-size: 1.2rem;
+
+      .slide {
+        margin: 1.5rem 0;
+      }
     }
   }
 }
@@ -98,6 +107,14 @@ export default {
   .about {
     .title {
       font-size: 2.5rem;
+    }
+
+    .text {
+      margin: 2rem 2.5rem;
+
+      .slide {
+        margin: 1rem 0;
+      }
     }
   }
 }
