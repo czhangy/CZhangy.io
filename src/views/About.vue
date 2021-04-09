@@ -4,13 +4,13 @@
     <hr class="separator" />
     <div class="text">
       <div class="slide">
-        <ImageSlider :content="lifeStory" variant="lifeStory" />
+        <ImageSlider :content="lifeStory" id="0" />
       </div>
       <div class="slide">
-        <ImageSlider :content="passions" variant="passions" />
+        <ImageSlider :content="passions" id="1" />
       </div>
       <div class="slide">
-        <ImageSlider :content="hobbies" variant="hobbies" />
+        <ImageSlider :content="hobbies" id="2" />
       </div>
     </div>
   </div>
