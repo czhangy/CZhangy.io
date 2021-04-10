@@ -45,13 +45,6 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // Background
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url("~@/assets/img/home.png");
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
   // Typography
   color: white;
   // Prevent highlighting

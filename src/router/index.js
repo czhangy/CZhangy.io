@@ -11,6 +11,14 @@ const routes = [
     }
   },
   {
+    path: '/skills',
+    name: 'Skills',
+    component: () => import('../views/Skills.vue'),
+    meta: {
+      title: 'CZhangy | About',
+    }
+  },
+  {
     path: '/about',
     name: 'About',
     component: () => import('../views/About.vue'),

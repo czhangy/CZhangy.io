@@ -60,8 +60,6 @@ export default {
   .img {
     // Set up block
     display: block;
-    width: 100%;
-    min-height: 100%;
     // For slide
     transition: 0.1s ease;
     overflow: hidden;
@@ -122,6 +120,16 @@ export default {
       .content {
         font-size: 0.9rem;
         line-height: 1.6;
+      }
+    }
+  }
+}
+
+@media (hover: hover) {
+  .image-slider {
+    .img {
+      &:hover {
+        transform: scale(1.1);
       }
     }
   }

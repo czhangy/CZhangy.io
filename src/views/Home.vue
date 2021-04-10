@@ -5,7 +5,7 @@
       <div class="title anim-text-flow">CZHANGY.IO</div>
       <hr class="separator" />
       <div class="nav">
-        <router-link to="/under-construction" class="link">SKILLS</router-link>
+        <router-link to="/skills" class="link">SKILLS</router-link>
         <router-link to="/under-construction" class="link"
           >PROJECTS</router-link
         >
@@ -57,9 +57,6 @@ export default {
   height: 100vh;
   // Set colors
   color: white;
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url("~@/assets/img/home.png");
-  background-position: center;
   // Position elements
   display: flex;
   align-items: center;
@@ -111,12 +108,6 @@ export default {
         // For hover
         border-bottom: 1px solid transparent;
         transition: all ease-in-out 0.3s;
-
-        &:hover {
-          // Highlight
-          border-color: white;
-          transform: scale(1.1);
-        }
       }
 
       .icon {
@@ -129,11 +120,6 @@ export default {
         margin: 0 1.5rem;
         // For hover
         transition: all ease-in-out 0.3s;
-
-        &:hover {
-          color: grey;
-          transform: scale(1.1);
-        }
       }
     }
   }
@@ -146,6 +132,7 @@ export default {
     background-image: url("~@/assets/img/headshot.jpeg");
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
     // Border
     border-radius: 100%;
     border: solid white 3px;
@@ -183,6 +170,31 @@ export default {
       height: 20rem;
       width: 20rem;
       margin: 2rem 0 2rem 0;
+    }
+  }
+}
+
+// Handle sticky hover
+@media (hover: hover) {
+  .home {
+    .text {
+      .nav {
+        .link {
+          &:hover {
+            // Highlight
+            border-color: white;
+            transform: scale(1.1);
+          }
+        }
+
+        .icon {
+          &:hover {
+            // Pop out of page
+            color: grey;
+            transform: scale(1.1);
+          }
+        }
+      }
     }
   }
 }

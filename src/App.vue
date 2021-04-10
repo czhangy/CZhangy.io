@@ -1,5 +1,5 @@
 <template>
-  <NavModal />
+  <NavModal :key="$route"/>
   <router-view />
 </template>
 
@@ -34,39 +34,12 @@ export default {
 
 // Clean up bounce on mobile
 html {
-  background-color: black;
-}
-
-// .home-button {
-//   font-size: 3rem;
-//   color: white;
-//   // Place in top corner
-//   position: fixed;
-//   top: 3rem;
-//   right: 5rem;
-//   z-index: 999;
-
-//   &:hover {
-//     color: gray;
-//     transform: scale(1.1);
-//   }
-// }
-
-@media screen and (max-width: 900px) {
-  .home-button {
-    font-size: 2.5rem;
-
-    top: 2rem;
-    right: 3.5rem;
-  }
-}
-
-@media screen and (max-width: 650px) {
-  .home-button {
-    font-size: 2rem;
-
-    top: 2rem;
-    right: 2rem;
-  }
+  // Background
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("~@/assets/img/home.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 </style>

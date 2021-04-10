@@ -40,6 +40,11 @@ export default {
       document.getElementsByClassName("home-button")[0].style.display = "none";
     },
   },
+  // Disable modal on home page
+  mounted() {
+    if (this.$route.path == "/")
+      document.getElementsByClassName("nav-modal")[0].style.display = "none";
+  },
 };
 </script>
 
@@ -98,11 +103,20 @@ export default {
       z-index: 999;
       // Cursor
       cursor: pointer;
+    }
+  }
+}
 
-      &:hover {
-        transform: scale(1.1);
-        color: gray;
-        transition: all 0.2s ease;
+@media (hover: hover) {
+  .nav-modal {
+    .modal {
+      .home-button {
+        &:hover {
+          // Animate
+          transform: scale(1.1);
+          color: gray;
+          transition: all 0.2s ease;
+        }
       }
     }
   }
