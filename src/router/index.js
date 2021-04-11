@@ -42,6 +42,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
+  window.scrollTo(0, 0)
   assignPageTitles()
   function assignPageTitles() {
     const nearestWithTitle = to.matched.slice().reverse().find(r => r.meta && r.meta.title);

@@ -49,12 +49,19 @@ export default {
   color: white;
   // Prevent highlighting
   user-select: none;
+  // Background
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("~@/assets/img/home.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
   .title {
     // Spacing
     margin: 2rem;
     // Typography
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 1.2rem + 3.2vw, 4rem);
   }
 
   .separator {
@@ -97,12 +104,7 @@ export default {
 
 @media screen and (max-width: 650px) {
   .about {
-    .title {
-      font-size: 2.5rem;
-    }
-
     .text {
-
       .slide {
         margin: 1rem 0;
       }

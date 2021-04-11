@@ -34,12 +34,7 @@ export default {
 
 // Clean up bounce on mobile
 html {
-  // Background
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url("~@/assets/img/home.png");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+  background: black;
+  height: 100%;
 }
 </style>

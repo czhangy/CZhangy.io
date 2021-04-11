@@ -63,6 +63,13 @@ export default {
   justify-content: center;
   // Prevent highlighting
   user-select: none;
+  // Background
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("~@/assets/img/home.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
   .text {
     // Position elements
@@ -75,7 +82,7 @@ export default {
       // Spacing
       margin: 1rem 0;
       // Typography
-      font-size: 4rem;
+      font-size: clamp(3rem, 2.444rem + 1.778vw, 4rem);
       font-weight: 250;
     }
 
@@ -147,9 +154,6 @@ export default {
     flex-direction: column;
 
     .text {
-      .title {
-        font-size: 3rem;
-      }
       .nav {
         .link {
           margin: 0 0.2rem;

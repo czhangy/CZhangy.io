@@ -1,6 +1,6 @@
 <template>
   <div class="image-slider" @click="handleClick">
-    <div class="img">{{ formatString() }}</div>
+    <div class="title-card">{{ formatString() }}</div>
     <div class="overlay">
       <div class="content">{{ content }}</div>
     </div>
@@ -27,11 +27,11 @@ export default {
     handleClick() {
       this.open = !this.open;
       if (this.open) {
-        document.getElementsByClassName("img")[this.id].style.width = "0";
+        document.getElementsByClassName("title-card")[this.id].style.width = "0";
         document.getElementsByClassName("overlay")[this.id].style.width =
           "100%";
       } else {
-        document.getElementsByClassName("img")[this.id].style.width = "100%";
+        document.getElementsByClassName("title-card")[this.id].style.width = "100%";
         document.getElementsByClassName("overlay")[this.id].style.width = "0";
       }
     },
@@ -57,7 +57,7 @@ export default {
   // Clickable
   cursor: pointer;
 
-  .img {
+  .title-card {
     // Set up block
     display: block;
     // For slide
@@ -83,31 +83,21 @@ export default {
 
     .content {
       // Typography
-      font-size: 2rem;
+      font-size: clamp(1rem, 0.1333rem + 2.13vw, 2rem);
       text-align: left;
     }
   }
 }
 
-// Media queries
-@media screen and (max-width: 1400px) {
-  .image-slider {
-    .overlay {
-      .content {
-        font-size: 1.5rem;
-      }
-    }
-  }
-}
 
+// Media queries
 @media screen and (max-width: 950px) {
   .image-slider {
-    .img {
+    .title-card {
       font-size: 3rem;
     }
     .overlay {
       .content {
-        font-size: 1.2rem;
         line-height: 1.5;
       }
     }
@@ -118,16 +108,16 @@ export default {
   .image-slider {
     .overlay {
       .content {
-        font-size: 0.9rem;
         line-height: 1.6;
       }
     }
   }
 }
 
+// Handle stick hover
 @media (hover: hover) {
   .image-slider {
-    .img {
+    .title-card {
       &:hover {
         transform: scale(1.1);
       }
