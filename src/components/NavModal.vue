@@ -113,8 +113,11 @@ export default {
       .home-button {
         &:hover {
           // Animate
+          color: lightgrey;
           transform: scale(1.1);
-          color: gray;
+          // background-image: linear-gradient(to right, #AC92EB, #4FC1E8, #A0D568, #FFCE54, #ED5564);
+          // background-clip: text;
+          // background-size: 300%;
           transition: all 0.2s ease;
         }
       }

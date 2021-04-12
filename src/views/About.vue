@@ -75,9 +75,9 @@ export default {
   .about-text {
     // Container
     height: 120vh;
-    width: 80%;
+    width: 90%;
     // Spacing
-    margin: 0rem 10rem 2rem 10rem;
+    margin-bottom: 2rem;
     padding: 0 5rem;
 
     .about-slide {

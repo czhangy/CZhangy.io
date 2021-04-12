@@ -182,9 +182,32 @@ export default {
 
         .social-icon {
           &:hover {
-            // Pop out of page
-            color: grey;
             transform: scale(1.1);
+          }
+          .fa-github {
+            &:hover {
+              color: $github-primary;
+            }
+          }
+          .fa-linkedin {
+            &:hover {
+              color: $linkedin-primary;
+            }
+          }
+          .fa-twitter {
+            &:hover {
+              color: $twitter-primary;
+            }
+          }
+          .fa-facebook {
+            &:hover {
+              color: $facebook-primary;
+            }
+          }
+          .fa-instagram {
+            &:hover {
+              color: $instagram-primary;
+            }
           }
         }
       }

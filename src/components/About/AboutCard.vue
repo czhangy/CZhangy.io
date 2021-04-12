@@ -33,16 +33,20 @@ export default {
     handleClick() {
       this.isFlipped = !this.isFlipped;
       if (this.isFlipped) {
-        document.getElementsByClassName("card-content")[this.id].style.transform = "rotateX(0.5turn)";
+        document.getElementsByClassName("card-content")[
+          this.id
+        ].style.transform = "rotateX(0.5turn)";
       } else
-        document.getElementsByClassName("card-content")[this.id].style.transform = "none";
-    }
+        document.getElementsByClassName("card-content")[
+          this.id
+        ].style.transform = "none";
+    },
   },
   data() {
     return {
       isFlipped: false,
     };
-  }
+  },
 };
 </script>
 
@@ -108,7 +112,7 @@ export default {
 
     .card-body {
       // Typography
-      font-size: clamp(0.8rem, 0.232rem + 2.021vw, 2rem);
+      font-size: clamp(0.8rem, 0.374rem + 1.516vw, 1.7rem);
       text-align: left;
     }
   }
