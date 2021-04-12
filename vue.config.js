@@ -7,5 +7,8 @@ module.exports = {
           `
             }
         }
-    }
+    },
+    pwa: {
+        name: 'CZhangy.io', // <---- this is PWA name
+      }
 };

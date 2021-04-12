@@ -1,28 +1,28 @@
 <template>
   <div class="about">
-    <div class="title">MEET THE NERD</div>
+    <div class="about-title">MEET THE NERD</div>
     <hr class="separator" />
-    <div class="text">
-      <div class="slide">
-        <ImageSlider :content="lifeStory" id="0" />
+    <div class="about-text">
+      <div class="about-slide">
+        <AboutCard :content="lifeStory" id="0" />
       </div>
-      <div class="slide">
-        <ImageSlider :content="passions" id="1" />
+      <div class="about-slide">
+        <AboutCard :content="passions" id="1" />
       </div>
-      <div class="slide">
-        <ImageSlider :content="hobbies" id="2" />
+      <div class="about-slide">
+        <AboutCard :content="hobbies" id="2" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import ImageSlider from "@/components/About/ImageSlider";
+import AboutCard from "@/components/About/AboutCard";
 
 export default {
   name: "About",
   components: {
-    ImageSlider,
+    AboutCard,
   },
   data() {
     return {
@@ -57,11 +57,11 @@ export default {
   background-repeat: no-repeat;
   background-attachment: fixed;
 
-  .title {
+  .about-title {
     // Spacing
     margin: 2rem;
     // Typography
-    font-size: clamp(2.5rem, 1.2rem + 3.2vw, 4rem);
+    font-size: clamp(2rem, 1.053rem + 3.368vw, 4rem);
   }
 
   .separator {
@@ -72,14 +72,17 @@ export default {
     background-color: white;
   }
 
-  .text {
+  .about-text {
     // Container
+    height: 120vh;
     width: 80%;
     // Spacing
     margin: 0rem 10rem 2rem 10rem;
     padding: 0 5rem;
 
-    .slide {
+    .about-slide {
+      height: 30%;
+      width: 100%;
       margin: 2rem 0;
       display: flex;
       align-items: center;
@@ -91,11 +94,11 @@ export default {
 // Media Queries
 @media screen and (max-width: 900px) {
   .about {
-    .text {
+    .about-text {
       width: 95%;
       padding: 0 3rem;
 
-      .slide {
+      .about-slide {
         margin: 1.5rem 0;
       }
     }

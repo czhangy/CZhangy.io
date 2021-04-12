@@ -95,7 +95,7 @@ export default {
   .skill-name {
     // Spacing
     margin-right: 1.7rem;
-    width: clamp(8rem, 1.933rem + 14.933vw, 15rem);
+    width: clamp(5rem, 0.263rem + 16.842vw, 15rem);
     // Typography
     font-size: clamp(1rem, 0.633rem + 2.133vw, 2.5rem);
     text-align: left;
@@ -113,7 +113,7 @@ export default {
 
     .logo {
       // Sizing
-      height: 35px;
+      height: clamp(1.5rem, 1.026rem + 1.684vw, 2.5rem);
       // Spacing
       margin-left: -20px;
       // Overlay
@@ -148,8 +148,11 @@ export default {
       // Sizing
       width: 55%;
       // Color
-      background: linear-gradient(45deg, $vue-accent, $vue-primary);
-      // Animate
+      background: linear-gradient(
+        45deg,
+        lighten($vue-accent, 30%),
+        $vue-primary
+      );
       animation: vue-load 1.5s;
     }
   }
@@ -162,7 +165,7 @@ export default {
       // Sizing
       width: 60%;
       // Color
-      background: linear-gradient(45deg, $js-accent, $js-primary);
+      background: linear-gradient(45deg, lighten($js-accent, 30%), $js-primary);
       // Animate
       animation: js-load 1.5s;
     }
@@ -170,13 +173,13 @@ export default {
 
   .html-bar {
     // Color
-    background: linear-gradient(45deg, $htmlcss-primary, $htmlcss-accent);
+    background: linear-gradient(45deg, $htmlcss-accent, lighten(black, 30%));
 
     .html-inner {
       // Sizing
       width: 55%;
       // Color
-      background: linear-gradient(45deg, $htmlcss-accent, $htmlcss-primary);
+      background: linear-gradient(45deg, lighten(black, 60%), $htmlcss-primary);
       // Animate
       animation: html-load 1.5s;
     }
@@ -184,13 +187,13 @@ export default {
 
   .python-bar {
     // Color
-    background: linear-gradient(45deg, $python-primary, $python-accent);
+    background: linear-gradient(45deg, $python-primary, lighten(black, 30%));
 
     .python-inner {
       // Sizing
       width: 60%;
       // Color
-      background: linear-gradient(45deg, $python-accent, $python-primary);
+      background: linear-gradient(45deg, lighten(black, 80%), $python-accent);
       // Animate
       animation: python-load 1.5s;
     }
@@ -204,7 +207,11 @@ export default {
       // Sizing
       width: 50%;
       // Color
-      background: linear-gradient(45deg, $cpp-accent, $cpp-primary);
+      background: linear-gradient(
+        45deg,
+        lighten($cpp-accent, 10%),
+        $cpp-primary
+      );
       // Animate
       animation: cpp-load 1.5s;
     }
@@ -212,13 +219,21 @@ export default {
 
   .react-bar {
     // Color
-    background: linear-gradient(45deg, $react-primary, $react-accent);
+    background: linear-gradient(
+      45deg,
+      $react-primary,
+      darken($react-accent, 60)
+    );
 
     .react-inner {
       // Sizing
       width: 55%;
       // Color
-      background: linear-gradient(45deg, $react-accent, $react-primary);
+      background: linear-gradient(
+        45deg,
+        darken($react-accent, 20%),
+        $react-primary
+      );
       // Animate
       animation: react-load 1.5s;
     }
@@ -285,9 +300,6 @@ export default {
   .skill-bar {
     .bar {
       width: 50%;
-      .logo {
-        height: 25px;
-      }
     }
   }
 }

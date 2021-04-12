@@ -1,0 +1,7 @@
+[
+    {
+        "type": "text",
+        "label": "First Name",
+        "name": "firstName"
+    }
+]
