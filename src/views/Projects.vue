@@ -74,7 +74,9 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
+  // Sizing
+  min-height: 100vh;
 
   .projects-title {
     // Spacing

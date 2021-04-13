@@ -109,7 +109,7 @@ export default {
     border: 1px solid black;
     border-radius: 20px;
     // Shadow
-    box-shadow: 0 0 10px #2187e7b3;
+    box-shadow: 0 0 10px $glow-color;
 
     .logo {
       // Sizing

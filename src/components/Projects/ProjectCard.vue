@@ -57,15 +57,15 @@ export default {
     },
   },
   mounted() {
-      /* eslint no-unexpected-multiline: "off" */
-      if (this.project.links[0].length > 0)
-    document
-      .getElementsByClassName("github-icon")
-      [this.index].setAttribute("href", this.project.links[0]);
-      if (this.project.links[1].length > 0)
-    document
-      .getElementsByClassName("link-icon")
-      [this.index].setAttribute("href", this.project.links[1]);
+    /* eslint no-unexpected-multiline: "off" */
+    if (this.project.links[0].length > 0)
+      document
+        .getElementsByClassName("github-icon")
+        [this.index].setAttribute("href", this.project.links[0]);
+    if (this.project.links[1].length > 0)
+      document
+        .getElementsByClassName("link-icon")
+        [this.index].setAttribute("href", this.project.links[1]);
   },
   methods: {
     handleClick() {
@@ -93,16 +93,19 @@ export default {
 
 .project-card {
   // Sizing
-  height: 30rem;
-  width: 25rem;
+  height: clamp(18rem, 12.316rem + 20.211vw, 30rem);
+  width: clamp(15rem, 10.263rem + 16.842vw, 25rem);
   // Typography
   font-family: "Oswald", sans-serif;
   // Spacing
-  margin: 5rem 5rem;
+  margin: clamp(2rem, 0.579rem + 5.053vw, 5rem);
   // Cursor
   cursor: pointer;
 
   .project-card-content {
+    // Sizing
+    height: clamp(18rem, 12.316rem + 20.211vw, 30rem);
+    width: clamp(15rem, 10.263rem + 16.842vw, 25rem);
     // Typography
     text-align: center;
     // Positioning
@@ -112,11 +115,12 @@ export default {
     // Animation
     transition: transform 2s;
     transform-style: preserve-3d;
-    box-shadow: 0 0 30px #2187e7b3;
-
 
     .project-card-front,
     .project-card-back {
+      // Sizing
+      height: clamp(18rem, 12.316rem + 20.211vw, 30rem);
+      width: clamp(15rem, 10.263rem + 16.842vw, 25rem);
       // Positioning
       position: absolute;
       top: 0;
@@ -132,6 +136,8 @@ export default {
       backface-visibility: hidden;
       // Animation
       transform-style: preserve-3d;
+      // Glow effect
+      box-shadow: 0 0 30px $glow-color;
     }
 
     .project-card-front {
@@ -142,10 +148,17 @@ export default {
       background-position: center;
       // For border
       color: #333;
+      // Position elements
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      // Border
+      border: 3px solid white;
 
       .project-card-title {
         // Typography
-        font-size: 3rem;
+        font-size: clamp(2rem, 1.526rem + 1.684vw, 3rem);
         margin: 2rem 0;
         color: white;
         text-shadow: 2px 2px black;
@@ -160,7 +173,7 @@ export default {
         // Typography
         text-transform: uppercase;
         letter-spacing: 4px;
-        font-size: 1rem;
+        font-size: clamp(0.7rem, 0.558rem + 0.505vw, 1rem);
         font-weight: 700;
         color: white;
         text-shadow: 1px 1px black;
@@ -175,7 +188,7 @@ export default {
         left: 1em;
         right: 1em;
         // Border
-        border: 3px solid black;
+        border: 3px solid white;
         // Bring into 3d space
         transform: $level-one;
       }
@@ -202,9 +215,10 @@ export default {
         align-items: center;
         justify-content: center;
         // Sizing icons
-        font-size: 2rem;
+        font-size: clamp(1rem, 0.526rem + 1.684vw, 2rem);
         // Bring to 3d space
         transform: $level-one;
+        margin-top: 1rem;
 
         .card-icon {
           color: $card-color;
@@ -224,7 +238,7 @@ export default {
         transform: $level-two;
         // Typography
         font-weight: 400;
-        font-size: 1.5rem;
+        font-size: clamp(0.8rem, 0.468rem + 1.179vw, 1.5rem);
         line-height: 1.6;
         text-align: left;
         margin-bottom: 2rem;
