@@ -1,5 +1,5 @@
 {
-  "name": "czhangyprojects",
+  "name": "czhangyio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -25,14 +25,12 @@
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
-    "babel-eslint": "^10.1.0",
-    "eslint-plugin-vue": "^7.0.0",
     "node-sass": "^4.14.1",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2"
   },
   "eslintConfig": {
-    "root": true,
+    "root": false,
     "env": {
       "node": true
     },
