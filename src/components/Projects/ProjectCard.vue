@@ -111,7 +111,7 @@ export default {
     // Positioning
     position: relative;
     // Spacing
-    padding: 15em 5em;
+    padding: 15em 0;
     // Animation
     transition: transform 2s;
     transform-style: preserve-3d;
@@ -242,6 +242,7 @@ export default {
         line-height: 1.6;
         text-align: left;
         margin-bottom: 2rem;
+        height: 70%;
       }
     }
   }

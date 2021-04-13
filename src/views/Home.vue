@@ -5,12 +5,6 @@
       <h1 class="home-title">CZHANGY.IO</h1>
       <hr class="separator" />
       <div class="home-nav">
-        <router-link to="/skills" class="home-link">SKILLS</router-link>
-        <router-link to="/projects" class="home-link">PROJECTS</router-link>
-        <router-link to="/about" class="home-link">ABOUT</router-link>
-      </div>
-      <hr class="separator" />
-      <div class="home-nav">
         <a
           href="https://github.com/czhangy"
           class="social-icon"
@@ -42,6 +36,12 @@
           target="_blank"
           ><i class="fab fa-instagram"></i
         ></a>
+      </div>
+      <hr class="separator" />
+      <div class="home-nav">
+        <router-link to="/skills" class="home-link">SKILLS</router-link>
+        <router-link to="/projects" class="home-link">PROJECTS</router-link>
+        <router-link to="/about" class="home-link">ABOUT</router-link>
       </div>
     </div>
   </div>
