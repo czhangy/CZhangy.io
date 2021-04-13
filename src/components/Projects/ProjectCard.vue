@@ -136,8 +136,8 @@ export default {
       backface-visibility: hidden;
       // Animation
       transform-style: preserve-3d;
-      // Glow effect
-      box-shadow: 0 0 30px $glow-color;
+      // Border
+      box-shadow: 0 0 30px #2187e7b3;
     }
 
     .project-card-front {
@@ -146,8 +146,6 @@ export default {
       background-size: cover;
       background-blend-mode: overlay;
       background-position: center;
-      // For border
-      color: #333;
       // Position elements
       display: flex;
       flex-direction: column;
@@ -155,6 +153,8 @@ export default {
       justify-content: center;
       // Border
       border: 3px solid white;
+      // For border
+      color: #333;
 
       .project-card-title {
         // Typography
