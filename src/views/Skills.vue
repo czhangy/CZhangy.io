@@ -1,12 +1,12 @@
 <template>
   <div class="skills">
-    <div class="skills-title">MY UH... TALENTS?</div>
+    <h1 class="skills-title">MY UH... TALENTS?</h1>
     <hr class="separator" />
     <div class="skill-bars">
       <SkillBar />
     </div>
     <div class="skills-body">
-      <div class="skills-text">
+      <p class="skills-text">
         Right off the bat, let's set something straight here. I'm a second-year
         student in college. My skillset is, well, reflective of that. I've
         picked up web development this year with my first part-time internship,
@@ -30,7 +30,7 @@
         and (admittedly limited) professional performance is reflective of that.
         So, if you'd like to take the chance and work with me, feel free to
         contact me!
-      </div>
+      </p>
       <div class="skills-form">
         <ContactForm />
       </div>
@@ -76,6 +76,7 @@ export default {
     margin: 2rem;
     // Typography
     font-size: clamp(2rem, 1.053rem + 3.368vw, 4rem);
+    font-weight: 200;
   }
 
   .separator {

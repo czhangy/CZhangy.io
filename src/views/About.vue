@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <div class="about-title">MEET THE NERD</div>
+    <h1 class="about-title">MEET THE NERD</h1>
     <hr class="separator" />
     <div class="about-text">
       <div class="about-slide">
@@ -62,6 +62,7 @@ export default {
     margin: 2rem;
     // Typography
     font-size: clamp(2rem, 1.053rem + 3.368vw, 4rem);
+    font-weight: 200;
   }
 
   .separator {

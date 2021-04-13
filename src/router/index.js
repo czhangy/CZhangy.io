@@ -15,7 +15,15 @@ const routes = [
     name: 'Skills',
     component: () => import('../views/Skills.vue'),
     meta: {
-      title: 'CZhangy | About',
+      title: 'CZhangy | Skills',
+    }
+  },
+  {
+    path: '/projects',
+    name: 'Projects',
+    component: () => import('../views/Projects.vue'),
+    meta: {
+      title: 'CZhangy | Projects',
     }
   },
   {

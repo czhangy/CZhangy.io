@@ -1,13 +1,13 @@
 <template>
   <div class="about-card" @click="handleClick">
-    <div class="card-content">
-      <div class="card-front">
-        <div class="card-title">
+    <div class="about-card-content">
+      <div class="about-card-front">
+        <div class="about-card-title">
           {{ formatString() }}
         </div>
       </div>
-      <div class="card-back">
-        <div class="card-body">{{ content }}</div>
+      <div class="about-card-back">
+        <p class="about-card-body">{{ content }}</p>
       </div>
     </div>
   </div>
@@ -33,11 +33,11 @@ export default {
     handleClick() {
       this.isFlipped = !this.isFlipped;
       if (this.isFlipped) {
-        document.getElementsByClassName("card-content")[
+        document.getElementsByClassName("about-card-content")[
           this.id
         ].style.transform = "rotateX(0.5turn)";
       } else
-        document.getElementsByClassName("card-content")[
+        document.getElementsByClassName("about-card-content")[
           this.id
         ].style.transform = "none";
     },
@@ -59,7 +59,7 @@ export default {
   // Clickable
   cursor: pointer;
 
-  .card-content {
+  .about-card-content {
     // Sizing
     width: 100%;
     height: 100%;
@@ -68,12 +68,12 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 1s;
+    transition: transform 0.5s;
     // Allow for 3D transforms
     transform-style: preserve-3d;
   }
 
-  .card-front {
+  .about-card-front {
     // Positioning
     position: absolute;
     top: 0;
@@ -87,14 +87,14 @@ export default {
     justify-content: center;
     align-items: center;
 
-    .card-title {
+    .about-card-title {
       // Typography
       font-size: clamp(3rem, 2.053rem + 3.368vw, 5rem);
       text-decoration: underline;
     }
   }
 
-  .card-back {
+  .about-card-back {
     // Positioning
     position: absolute;
     top: 0;
@@ -110,7 +110,7 @@ export default {
     justify-content: center;
     align-items: center;
 
-    .card-body {
+    .about-card-body {
       // Typography
       font-size: clamp(0.8rem, 0.374rem + 1.516vw, 1.7rem);
       text-align: left;
@@ -121,9 +121,9 @@ export default {
 // Media queries
 @media screen and (max-width: 950px) {
   .about-card {
-    .card-content {
-      .card-back {
-        .card-body {
+    .about-card-content {
+      .about-card-back {
+        .about-card-body {
           line-height: 1.5;
         }
       }
@@ -133,9 +133,9 @@ export default {
 
 @media screen and (max-width: 625px) {
   .about-card {
-    .card-content {
-      .card-back {
-        .card-body {
+    .about-card-content {
+      .about-card-back {
+        .about-card-body {
           line-height: 1.6;
         }
       }

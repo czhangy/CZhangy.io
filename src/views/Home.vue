@@ -2,13 +2,11 @@
   <div class="home">
     <div class="home-picture"></div>
     <div class="home-text">
-      <div class="home-title">CZHANGY.IO</div>
+      <h1 class="home-title">CZHANGY.IO</h1>
       <hr class="separator" />
       <div class="home-nav">
         <router-link to="/skills" class="home-link">SKILLS</router-link>
-        <router-link to="/under-construction" class="home-link"
-          >PROJECTS</router-link
-        >
+        <router-link to="/projects" class="home-link">PROJECTS</router-link>
         <router-link to="/about" class="home-link">ABOUT</router-link>
       </div>
       <hr class="separator" />
