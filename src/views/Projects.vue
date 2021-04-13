@@ -24,14 +24,34 @@ export default {
     return {
       projects: [
         {
-          name: "BruinByte!",
-          tag: "Front-end Development",
+          name: "bruinbyte!",
+          tag: "front-end development",
           links: [
             "https://github.com/czhangy/bruinbyte",
             "https://bruinbyte.netlify.app/",
           ],
           description:
             "Used React.js and the Material-UI framework to create and deploy a full-stack web application designed to act as a local food review hub for UCLA students based on the FERN stack, while also employing Google Firebase to provide dynamic data and user authentication to the application.",
+        },
+        {
+          name: "bruinshack",
+          tag: "full-stack development",
+          links: [
+            "https://github.com/tangruler/bruinshack-frontend",
+            "https://bruinshack.com/",
+          ],
+          description:
+            "Designing a responsive review system using Vue and the Vuex library that facilitates ratings and reviews from approximately 500 weekly active users looking for apartments in the Westwood area, using the MEVN stack to provide dynamic data to the deployed application.",
+        },
+        {
+          name: "hype pong",
+          tag: "game development",
+          links: [
+            "",
+            "",
+          ],
+          description:
+            "Developing map and gameplay mechanics for a tennis-style role-playing game using the Unity engine and C#, while leading the level design unit tasked with modelling 3D assets and levels using Unity ProBuilder, designed to help emphasize the game's core mechanics.",
         },
       ],
     };

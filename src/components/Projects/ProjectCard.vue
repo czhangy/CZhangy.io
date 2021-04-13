@@ -40,8 +40,12 @@ export default {
   },
   computed: {
     bgImage() {
-      if (this.index != -1) {
+      if (this.index == 0) {
         return require("../../assets/img/projects/bruinbyte.jpg");
+      } else if (this.index == 1) {
+        return require("../../assets/img/projects/bruinshack.jpg");
+      } else if (this.index == 2) {
+        return require("../../assets/img/projects/hypepong.jpg");
       } else {
         return 0;
       }
@@ -53,9 +57,12 @@ export default {
     },
   },
   mounted() {
+      /* eslint no-unexpected-multiline: "off" */
+      if (this.project.links[0].length > 0)
     document
       .getElementsByClassName("github-icon")
       [this.index].setAttribute("href", this.project.links[0]);
+      if (this.project.links[1].length > 0)
     document
       .getElementsByClassName("link-icon")
       [this.index].setAttribute("href", this.project.links[1]);
@@ -91,7 +98,7 @@ export default {
   // Typography
   font-family: "Oswald", sans-serif;
   // Spacing
-  margin: 3rem 5rem;
+  margin: 5rem 5rem;
   // Cursor
   cursor: pointer;
 
@@ -105,6 +112,8 @@ export default {
     // Animation
     transition: transform 2s;
     transform-style: preserve-3d;
+    box-shadow: 0 0 30px #2187e7b3;
+
 
     .project-card-front,
     .project-card-back {
@@ -218,11 +227,13 @@ export default {
         font-size: 1.5rem;
         line-height: 1.6;
         text-align: left;
+        margin-bottom: 2rem;
       }
     }
   }
 }
 
+// Handle sticky hover
 @media (hover: hover) {
   .project-card {
     .project-card-content {
@@ -238,4 +249,6 @@ export default {
     }
   }
 }
+
+// Mobile sizing
 </style>
