@@ -46,10 +46,7 @@ export default {
         {
           name: "hype pong",
           tag: "game development",
-          links: [
-            "",
-            "",
-          ],
+          links: ["", ""],
           description:
             "Developing map and gameplay mechanics for a tennis-style role-playing game using the Unity engine and C#, while leading the level design unit tasked with modelling 3D assets and levels using Unity ProBuilder and related tools.",
         },
@@ -94,11 +91,6 @@ export default {
     // Style bar
     background-color: white;
   }
-
-  .project-display {
-    max-width: 100%;
-    // Position elements
-  }
 }
 
 // Media queries
@@ -106,9 +98,10 @@ export default {
 @media screen and (min-width: 1400px) {
   .projects {
     .project-display {
+      // Position elements
       display: grid;
-      grid-template-columns: 460px 460px 460px;
-      gap: 50px 50px;
+      grid-template-columns: 500px 500px;
+      gap: 0 200px;
       justify-items: center;
       align-items: center;
     }
