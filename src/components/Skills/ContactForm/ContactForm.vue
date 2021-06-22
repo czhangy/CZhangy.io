@@ -19,15 +19,22 @@
           placeholder="Message"
         />
       </div>
-      <input v-if="error" class="error-button" value="ERROR" readonly/>
-      <input v-else-if="!submitted" type="submit" class="submit-button" value="SUBMIT" readonly/>
-      <input v-else class="sent-button" value="SENT!" readonly/>
+      <input v-if="error" class="error-button" value="ERROR" readonly />
+      <input
+        v-else-if="!submitted"
+        type="submit"
+        class="submit-button"
+        value="SUBMIT"
+        readonly
+      />
+      <input v-else class="sent-button" value="SENT!" readonly />
     </form>
   </div>
 </template>
 
 <script>
 import emailjs from "emailjs-com";
+import Swal from 'sweetalert2'
 export default {
   name: "ContactForm",
   data() {
@@ -42,6 +49,35 @@ export default {
   },
   methods: {
     sendEmail() {
+      let error = false;
+      // Check
+      if (this.name === "") {
+        document.getElementsByClassName("top-input-field")[0].style.border =
+          "2px solid red";
+        error = true;
+      }
+      if (this.email === "") {
+        document.getElementsByClassName("top-input-field")[1].style.border =
+          "2px solid red";
+        error = true;
+      }
+      if (this.subject === "") {
+        document.getElementsByClassName("middle-input-field")[0].style.border =
+          "2px solid red";
+        error = true;
+      }
+      if (this.message === "") {
+        document.getElementsByClassName("bottom-input-field")[0].style.border =
+          "2px solid red";
+        error = true;
+      }
+      if (error) {
+        Swal.fire({
+          icon: "error",
+          title: "Please fill in all fields!",
+        });
+        return;
+      }
       var emailContents = {
         subject: this.subject,
         name: this.name,
@@ -210,6 +246,7 @@ export default {
         }
       }
     }
+
     .submit-button {
       // Color
       background-color: transparent;

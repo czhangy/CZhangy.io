@@ -41,13 +41,13 @@ export default {
   computed: {
     bgImage() {
       if (this.index == 0) {
-        return require("../../assets/img/projects/bruinbyte.jpg");
+        return require("@/assets/img/projects/bruinbyte.jpg");
       } else if (this.index == 1) {
-        return require("../../assets/img/projects/bruinshack.jpg");
+        return require("@/assets/img/projects/bruinshack.jpg");
       } else if (this.index == 2) {
-        return require("../../assets/img/projects/hypepong.jpg");
-      } else {
-        return 0;
+        return require("@/assets/img/projects/splekbot.png");
+      } else if (this.index == 3) {
+        return require("@/assets/img/projects/amplificationproject.png")
       }
     },
     inlineStyling() {
@@ -62,10 +62,16 @@ export default {
       document
         .getElementsByClassName("github-icon")
         [this.index].setAttribute("href", this.project.links[0]);
+    else
+      document.getElementsByClassName("github-icon")[this.index].style.display =
+        "none";
     if (this.project.links[1].length > 0)
       document
         .getElementsByClassName("link-icon")
         [this.index].setAttribute("href", this.project.links[1]);
+    else
+      document.getElementsByClassName("link-icon")[this.index].style.display =
+        "none";
   },
   methods: {
     handleClick() {
@@ -104,14 +110,13 @@ export default {
 
   .project-card-content {
     // Sizing
-    height: clamp(18rem, 12.316rem + 20.211vw, 30rem);
     width: clamp(15rem, 10.263rem + 16.842vw, 25rem);
     // Typography
     text-align: center;
     // Positioning
     position: relative;
     // Spacing
-    padding: 15em 0;
+    padding: 0;
     // Animation
     transition: transform 2s;
     transform-style: preserve-3d;

@@ -2,7 +2,7 @@
   <div class="projects">
     <h1 class="projects-title">my work</h1>
     <hr class="separator" />
-    <div class="project-display">
+    <div class="projects-display">
       <ProjectCard
         v-for="(project, index) in projects"
         :key="index"
@@ -24,8 +24,8 @@ export default {
     return {
       projects: [
         {
-          name: "bruinbyte!",
-          tag: "front-end development",
+          name: "Bruinbyte!",
+          tag: "Front-end Development",
           links: [
             "https://github.com/czhangy/bruinbyte",
             "https://bruinbyte.netlify.app/",
@@ -34,24 +34,34 @@ export default {
             "Used React.js and the Material-UI library to create and deploy a full-stack web app designed to act as a local food review hub for UCLA students based on the FERN stack, while also employing Google Firebase to provide and user authentication to the application.",
         },
         {
-          name: "bruinshack",
-          tag: "full-stack development",
+          name: "Bruinshack",
+          tag: "Full-stack Development",
           links: [
             "https://github.com/tangruler/bruinshack-frontend",
             "https://bruinshack.com/",
           ],
           description:
-            "Designing a responsive review system using Vue and the Vuex library that facilitates ratings and reviews from 500 weekly active users looking for apartments in the Westwood area, using the MEVN stack to provide dynamic data to the deployed application.",
+            "Designing a responsive review system using Vue and the Vuex library that facilitates ratings and reviews from 2,000 weekly active users looking for apartments in the Westwood area, using the MEVN stack to provide dynamic data to the deployed application.",
         },
         {
-          name: "hype pong",
-          tag: "game development",
+          name: "Splekbot",
+          tag: "Game Development",
           links: [
             "",
-            "",
+            "https://aaisara12.itch.io/splekbot",
           ],
           description:
-            "Developing map and gameplay mechanics for a tennis-style role-playing game using the Unity engine and C#, while leading the level design unit tasked with modelling 3D assets and levels using Unity ProBuilder and related tools.",
+            "Developing map and gameplay mechanics for a tennis-style role-playing game using the Unity engine and C#, while leading the level design unit tasked with modelling 3D assets and levels using Unity ProBuilder and related tools, operating using Agile methodologies.",
+        },
+        {
+          name: "The Amplification Project",
+          tag: "Front-end Development",
+          links: [
+            "https://github.com/czhangy/TheAmplificationProject",
+            "https://theamplificationproject.netlify.app/",
+          ],
+          description:
+            "Working to implement a design of the organization's main website using Vue while coordinating with a backend developer to raise awareness of forced migration through the documentation and preservation of related art and activism.",
         },
       ],
     };
@@ -70,13 +80,10 @@ export default {
   background-attachment: fixed;
   // Typography
   color: white;
-  // Position elements
+  // Flexbox for centering
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  // Sizing
-  min-height: 100vh;
 
   .projects-title {
     // Spacing
@@ -95,25 +102,15 @@ export default {
     background-color: white;
   }
 
-  .project-display {
-    max-width: 100%;
-    // Position elements
+  .projects-display {
+    // Flexbox for layout
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
   }
 }
 
 // Media queries
-// Desktop layout
-@media screen and (min-width: 1400px) {
-  .projects {
-    .project-display {
-      display: grid;
-      grid-template-columns: 460px 460px 460px;
-      gap: 50px 50px;
-      justify-items: center;
-      align-items: center;
-    }
-  }
-}
 // Workaround for background attachment on mobile
 @media (hover: none) {
   .projects {
