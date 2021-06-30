@@ -46,10 +46,7 @@ export default {
         {
           name: "Splekbot",
           tag: "Game Development",
-          links: [
-            "",
-            "https://aaisara12.itch.io/splekbot",
-          ],
+          links: ["", "https://aaisara12.itch.io/splekbot"],
           description:
             "Developing map and gameplay mechanics for a tennis-style role-playing game using the Unity engine and C#, while leading the level design unit tasked with modelling 3D assets and levels using Unity ProBuilder and related tools, operating using Agile methodologies.",
         },
@@ -62,6 +59,13 @@ export default {
           ],
           description:
             "Working to implement a design of the organization's main website using Vue while coordinating with a backend developer to raise awareness of forced migration through the documentation and preservation of related art and activism.",
+        },
+        {
+          name: "CZhangy's Survival Guides",
+          tag: "Academic",
+          links: ["", "https://czhangy-survival-guides.netlify.app/"],
+          description:
+            "Composed, designed, and published academic guides to core UCLA coursework online, in an effort to assist struggling students approach challenging course material from a student perspective, while providing quick and accessible resources to study with.",
         },
       ],
     };
