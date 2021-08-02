@@ -67,6 +67,16 @@ export default {
           description:
             "Composed, designed, and published academic guides to core UCLA coursework online, in an effort to assist struggling students approach challenging course material from a student perspective, while providing quick and accessible resources to study with.",
         },
+        {
+          name: "DARS++",
+          tag: "Full-stack Development",
+          links: [
+            "https://github.com/czhangy/DARSPlusPlus",
+            "http://darsplusplus.herokuapp.com/",
+          ],
+          description:
+            "Developed a web application using the MEVN stack that allows users to engage in course planning and attempts to optimize their upcoming schedule using topological sorting, focusing on responsive design and RESTful principles.",
+        },
       ],
     };
   },

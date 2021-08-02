@@ -42,14 +42,16 @@ export default {
     bgImage() {
       if (this.index == 0)
         return require("@/assets/img/projects/bruinbyte.jpg");
-      else if (this.index == 1)
+      else if (this.index === 1)
         return require("@/assets/img/projects/bruinshack.jpg");
-      else if (this.index == 2)
+      else if (this.index === 2)
         return require("@/assets/img/projects/splekbot.png");
-      else if (this.index == 3)
+      else if (this.index === 3)
         return require("@/assets/img/projects/amplificationproject.png")
-      else if (this.index == 4)
+      else if (this.index === 4)
         return require("@/assets/img/projects/survivalguides.jpeg")
+      else if (this.index === 5)
+      return require("@/assets/img/projects/darsplusplus.jpg")
     },
     inlineStyling() {
       return {
