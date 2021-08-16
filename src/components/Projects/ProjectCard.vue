@@ -142,8 +142,6 @@ export default {
       align-content: center;
       // Hide backwards text
       backface-visibility: hidden;
-      // Animation
-      transform-style: preserve-3d;
       // Border
       box-shadow: 0 0 30px #2187e7b3;
     }
@@ -171,8 +169,6 @@ export default {
         color: white;
         text-shadow: 2px 2px black;
         text-transform: uppercase;
-        // Bring into 3d space
-        transform: $level-three;
       }
 
       .project-card-subtitle {
@@ -197,8 +193,6 @@ export default {
         right: 1em;
         // Border
         border: 3px solid white;
-        // Bring into 3d space
-        transform: $level-one;
       }
     }
 
@@ -224,8 +218,6 @@ export default {
         justify-content: center;
         // Sizing icons
         font-size: clamp(1rem, 0.526rem + 1.684vw, 2rem);
-        // Bring to 3d space
-        transform: $level-one;
         margin-top: 1rem;
 
         .card-icon {
@@ -242,8 +234,6 @@ export default {
       }
 
       .project-card-body {
-        // Bring into 3d space
-        transform: $level-two;
         // Typography
         font-weight: 400;
         font-size: clamp(0.8rem, 0.468rem + 1.179vw, 1.5rem);
