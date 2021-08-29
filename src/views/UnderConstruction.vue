@@ -20,16 +20,11 @@ export default {
   height: 100vh;
   // Set colors
   color: white;
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url("~@/assets/img/home.png");
-  background-position: center;
   // Position elements
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // Prevent highlighting
-  user-select: none;
 
   .title {
     // Typography

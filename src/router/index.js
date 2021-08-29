@@ -1,74 +1,60 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home,
+    path: "/",
+    name: "Main",
+    component: () => import("@/views/Main.vue"),
     meta: {
-      title: 'CZhangy | Home',
-    }
+      title: "CZhangy",
+    },
   },
   {
-    path: '/skills',
-    name: 'Skills',
-    component: () => import('../views/Skills.vue'),
+    path: "/under-construction",
+    name: "Under Construction",
+    component: () => import("@/views/UnderConstruction.vue"),
     meta: {
-      title: 'CZhangy | Skills',
-    }
+      title: "CZhangy | Under Construction",
+    },
   },
-  {
-    path: '/projects',
-    name: 'Projects',
-    component: () => import('../views/Projects.vue'),
-    meta: {
-      title: 'CZhangy | Projects',
-    }
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: () => import('../views/About.vue'),
-    meta: {
-      title: 'CZhangy | About',
-    }
-  },
-  {
-    path: '/under-construction',
-    name: 'Under Construction',
-    component: () => import('../views/UnderConstruction.vue'),
-    meta: {
-      title: 'CZhangy | Under Construction',
-    }
-  },
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
 router.beforeEach((to, from, next) => {
-  window.scrollTo(0, 0)
-  assignPageTitles()
+  // Scroll to top of page on redirect
+  window.scrollTo(0, 0);
+  // Handle metadata
+  assignPageTitles();
   function assignPageTitles() {
-    const nearestWithTitle = to.matched.slice().reverse().find(r => r.meta && r.meta.title);
-    const nearestWithMeta = to.matched.slice().reverse().find(r => r.meta && r.meta.metaTags);
+    const nearestWithTitle = to.matched
+      .slice()
+      .reverse()
+      .find((r) => r.meta && r.meta.title);
+    const nearestWithMeta = to.matched
+      .slice()
+      .reverse()
+      .find((r) => r.meta && r.meta.metaTags);
     if (nearestWithTitle) document.title = nearestWithTitle.meta.title;
-    Array.from(document.querySelectorAll('[data-vue-router-controlled]')).map(el => el.parentNode.removeChild(el));
+    Array.from(
+      document.querySelectorAll("[data-vue-router-controlled]")
+    ).map((el) => el.parentNode.removeChild(el));
     if (!nearestWithMeta) return next();
-    nearestWithMeta.meta.metaTags.map(tagDef => {
-      const tag = document.createElement('meta');
-      Object.keys(tagDef).forEach(key => {
-        tag.setAttribute(key, tagDef[key]);
-      });
-      tag.setAttribute('data-vue-router-controlled', '');
-      return tag;
-    })
-      .forEach(tag => document.head.appendChild(tag));
+    nearestWithMeta.meta.metaTags
+      .map((tagDef) => {
+        const tag = document.createElement("meta");
+        Object.keys(tagDef).forEach((key) => {
+          tag.setAttribute(key, tagDef[key]);
+        });
+        tag.setAttribute("data-vue-router-controlled", "");
+        return tag;
+      })
+      .forEach((tag) => document.head.appendChild(tag));
     next();
   }
 });
 
-export default router
+export default router;

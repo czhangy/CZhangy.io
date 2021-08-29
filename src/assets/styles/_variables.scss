@@ -1,7 +1,12 @@
+// Theme colors
 $primary: black;
 $accent: white;
+// Fonts
+$main-font: "Exo 2", Helvetica, Arial, sans-serif;
+// Project card colors
 $card-color: darken(#b7c9e5, 10%);
 $glow-color: #2187e7b3;
+// Tools colors
 $vue-primary: #41b883;
 $vue-accent: #34495e;
 $js-primary: #f0db4f;
@@ -14,11 +19,9 @@ $cpp-primary: #659ad2;
 $cpp-accent: #004482;
 $react-primary: #53c1de;
 $react-accent: white;
+// Social icon colors
 $linkedin-primary: #006192;
 $github-primary: #f5f5f5;
 $twitter-primary: #1DA1F2;
 $facebook-primary: #4267B2;
 $instagram-primary: #C13584;
-$level-one: translateZ(3rem);
-$level-two: translateZ(6rem);
-$level-three: translateZ(9rem);

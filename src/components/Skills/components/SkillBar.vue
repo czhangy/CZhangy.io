@@ -1,39 +1,39 @@
 <template>
-  <div class="skill-bar">
+  <div id="skill-bar">
     <div class="skill">
       <div class="skill-name">Vue</div>
-      <div class="bar vue-bar">
+      <div class="bar" id="vue-bar">
         <div class="over-bar">
-          <div class="inner-bar vue-inner"></div>
-          <img :src="require(`../../assets/img/logos/vue.png`)" class="logo" />
+          <div class="inner-bar" id="vue-inner"></div>
+          <img :src="require(`@/assets/img/logos/vue.png`)" class="logo" />
         </div>
       </div>
     </div>
     <div class="skill">
       <div class="skill-name">JavaScript</div>
-      <div class="bar js-bar">
+      <div class="bar" id="js-bar">
         <div class="over-bar">
-          <div class="inner-bar js-inner"></div>
-          <img :src="require(`../../assets/img/logos/js.png`)" class="logo" />
+          <div class="inner-bar" id="js-inner"></div>
+          <img :src="require(`@/assets/img/logos/js.png`)" class="logo" />
         </div>
       </div>
     </div>
     <div class="skill">
       <div class="skill-name">HTML/CSS</div>
-      <div class="bar html-bar">
+      <div class="bar" id="html-bar">
         <div class="over-bar">
-          <div class="inner-bar html-inner"></div>
-          <img :src="require(`../../assets/img/logos/html.png`)" class="logo" />
+          <div class="inner-bar" id="html-inner"></div>
+          <img :src="require(`@/assets/img/logos/html.png`)" class="logo" />
         </div>
       </div>
     </div>
     <div class="skill">
       <div class="skill-name">React</div>
-      <div class="bar react-bar">
+      <div class="bar" id="react-bar">
         <div class="over-bar">
-          <div class="inner-bar react-inner"></div>
+          <div class="inner-bar" id="react-inner"></div>
           <img
-            :src="require(`../../assets/img/logos/react.png`)"
+            :src="require(`@/assets/img/logos/react.png`)"
             class="logo"
           />
         </div>
@@ -41,11 +41,11 @@
     </div>
     <div class="skill">
       <div class="skill-name">Python</div>
-      <div class="bar python-bar">
+      <div class="bar" id="python-bar">
         <div class="over-bar">
-          <div class="inner-bar python-inner"></div>
+          <div class="inner-bar" id="python-inner"></div>
           <img
-            :src="require(`../../assets/img/logos/python.png`)"
+            :src="require(`@/assets/img/logos/python.png`)"
             class="logo"
           />
         </div>
@@ -53,10 +53,10 @@
     </div>
     <div class="skill">
       <div class="skill-name">C++</div>
-      <div class="bar cpp-bar">
+      <div class="bar" id="cpp-bar">
         <div class="over-bar">
-          <div class="inner-bar cpp-inner"></div>
-          <img :src="require(`../../assets/img/logos/c++.png`)" class="logo" />
+          <div class="inner-bar" id="cpp-inner"></div>
+          <img :src="require(`@/assets/img/logos/c++.png`)" class="logo" />
         </div>
       </div>
     </div>
@@ -70,7 +70,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.skill-bar {
+#skill-bar {
   // Spacing
   margin: 1rem 0;
   // Sizing
@@ -140,11 +140,11 @@ export default {
     }
   }
 
-  .vue-bar {
+  #vue-bar {
     // Color
     background: linear-gradient(45deg, $vue-primary, $vue-accent);
 
-    .vue-inner {
+    #vue-inner {
       // Sizing
       width: 55%;
       // Color
@@ -157,11 +157,11 @@ export default {
     }
   }
 
-  .js-bar {
+  #js-bar {
     // Color
     background: linear-gradient(45deg, $js-primary, $js-accent);
 
-    .js-inner {
+    #js-inner {
       // Sizing
       width: 60%;
       // Color
@@ -171,11 +171,11 @@ export default {
     }
   }
 
-  .html-bar {
+  #html-bar {
     // Color
     background: linear-gradient(45deg, $htmlcss-accent, lighten(black, 30%));
 
-    .html-inner {
+    #html-inner {
       // Sizing
       width: 55%;
       // Color
@@ -185,11 +185,11 @@ export default {
     }
   }
 
-  .python-bar {
+  #python-bar {
     // Color
     background: linear-gradient(45deg, $python-primary, lighten(black, 30%));
 
-    .python-inner {
+    #python-inner {
       // Sizing
       width: 60%;
       // Color
@@ -199,11 +199,11 @@ export default {
     }
   }
 
-  .cpp-bar {
+  #cpp-bar {
     // Color
     background: linear-gradient(45deg, $cpp-primary, $cpp-accent);
 
-    .cpp-inner {
+    #cpp-inner {
       // Sizing
       width: 50%;
       // Color
@@ -217,7 +217,7 @@ export default {
     }
   }
 
-  .react-bar {
+  #react-bar {
     // Color
     background: linear-gradient(
       45deg,
@@ -225,7 +225,7 @@ export default {
       darken($react-accent, 60)
     );
 
-    .react-inner {
+    #react-inner {
       // Sizing
       width: 55%;
       // Color

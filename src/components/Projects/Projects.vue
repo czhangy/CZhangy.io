@@ -1,8 +1,7 @@
 <template>
-  <div class="projects">
-    <h1 class="projects-title">my work</h1>
-    <hr class="separator" />
-    <div class="projects-display">
+  <div id="projects">
+    <h1 id="projects-title" class="hide">What I've Done</h1>
+    <div id="projects-display">
       <ProjectCard
         v-for="(project, index) in projects"
         :key="index"
@@ -14,7 +13,9 @@
 </template>
 
 <script>
-import ProjectCard from "../components/Projects/ProjectCard";
+// Import local components
+import ProjectCard from "./components/ProjectCard";
+
 export default {
   name: "Projects",
   components: {
@@ -80,43 +81,57 @@ export default {
       ],
     };
   },
+  methods: {
+    // Animation function
+    handleRightFade: function () {
+      let top = window.pageYOffset + window.innerHeight;
+      if (top > document.querySelector("#projects-title").offsetTop + 100)
+        document
+          .getElementById("projects-title")
+          .classList.add("start-right-fade");
+    },
+  },
+  mounted() {
+    // Constantly check if section is in viewport
+    document.addEventListener("scroll", this.handleRightFade);
+  },
+  beforeUnmount() {
+    // Clean up
+    document.removeEventListener("scroll", this.handleRightFade);
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-.projects {
-  // Background
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url("~@/assets/img/home.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+#projects {
   // Typography
   color: white;
   // Flexbox for centering
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
 
-  .projects-title {
+  .hide {
+    // Hide initially
+    opacity: 0;
+  }
+
+  #projects-title {
     // Spacing
-    margin: 2rem;
+    margin: 32px;
+    margin-right: 5%;
     // Typography
     font-size: clamp(2rem, 1.053rem + 3.368vw, 4rem);
     font-weight: 200;
-    text-transform: uppercase;
+    // Alignment
+    text-align: right;
+    // Underline
+    border-bottom: 2px solid white;
+    padding-bottom: 32px;
+    padding-left: 64px;
   }
 
-  .separator {
-    // Get bar
-    height: 2px;
-    width: 60%;
-    // Style bar
-    background-color: white;
-  }
-
-  .projects-display {
+  #projects-display {
     // Flexbox for layout
     display: flex;
     justify-content: space-evenly;
@@ -124,10 +139,33 @@ export default {
   }
 }
 
-// Media queries
+// Animation classes
+.start-right-fade {
+  --animate: 1s ease forwards;
+  // Animate
+  animation: fadeInRight var(--animate);
+  -webkit-animation: fadeInRight var(--animate);
+  -moz-animation: fadeInRight var(--animate);
+  -ms-animation: fadeInRight var(--animate);
+  -o-animation: fadeInRight var(--animate);
+}
+
+// Animations
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 // Workaround for background attachment on mobile
 @media (hover: none) {
-  .projects {
+  #projects {
     background-attachment: initial;
   }
 }

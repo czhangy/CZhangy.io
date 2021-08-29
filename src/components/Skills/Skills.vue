@@ -1,12 +1,11 @@
 <template>
-  <div class="skills">
-    <h1 class="skills-title">MY UH... TALENTS?</h1>
-    <hr class="separator" />
-    <div class="skill-bars">
+  <div id="skills">
+    <h1 id="skills-title" class="hide">What I Know</h1>
+    <div id="skill-bars">
       <SkillBar />
     </div>
-    <div class="skills-body">
-      <p class="skills-text">
+    <div id="skills-body">
+      <p>
         Right off the bat, let's set something straight here. I'm a second-year
         student in college. My skillset is, well, reflective of that. I've
         picked up web development this year with my first part-time internship,
@@ -31,16 +30,14 @@
         So, if you'd like to take the chance and work with me, feel free to
         contact me!
       </p>
-      <div class="skills-form">
-        <ContactForm />
-      </div>
     </div>
   </div>
 </template>
 
 <script>
-import SkillBar from "../components/Skills/SkillBar";
-import ContactForm from "../components/Skills/ContactForm/ContactForm";
+// Import local components
+import SkillBar from "./components/SkillBar";
+import ContactForm from "./components/ContactForm";
 
 export default {
   name: "Skills",
@@ -48,97 +45,133 @@ export default {
     SkillBar,
     ContactForm,
   },
+  methods: {
+    // Animation function
+    handleLeftFade: function () {
+      let top = window.pageYOffset + window.innerHeight;
+      if (top > document.querySelector("#skills-title").offsetTop + 100)
+        document
+          .getElementById("skills-title")
+          .classList.add("start-left-fade");
+    },
+  },
+  mounted() {
+    // Constantly check if section is in viewport
+    document.addEventListener("scroll", this.handleLeftFade);
+  },
+  beforeUnmount() {
+    // Clean up
+    document.removeEventListener("scroll", this.handleLeftFade);
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.skills {
-  position: relative;
+#skills {
   // Position elements
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  // Background
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url("~@/assets/img/home.png");
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
+  align-items: flex-start;
   // Typography
   color: white;
-  // Prevent highlighting
-  user-select: none;
 
-  .skills-title {
+  .hide {
+    // Hide initially
+    opacity: 0;
+  }
+
+  #skills-title {
     // Spacing
-    margin: 2rem;
+    margin: 32px;
+    margin-left: 5%;
     // Typography
     font-size: clamp(2rem, 1.053rem + 3.368vw, 4rem);
     font-weight: 200;
+    // Alignment
+    text-align: left;
+    // Underline
+    border-bottom: 2px solid white;
+    padding-bottom: 32px;
+    padding-right: 64px;
   }
 
-  .separator {
-    // Get bar
-    height: 2px;
-    width: 60%;
-    // Style bar
-    background-color: white;
-  }
-
-  .skill-bars {
+  #skill-bars {
     // Sizing
     width: 100%;
     // Spacing
-    margin: 2rem auto;
-    display: flex;
-    justify-content: flex;
-    align-items: flex;
+    margin: 32px auto;
   }
 
-  .skills-body {
+  #skills-body {
+    // Sizing
     width: 90%;
+    // Centering
+    margin: 0 auto;
 
-    .skills-text {
+    p {
       // Typography
       font-size: clamp(0.8rem, 0.468rem + 1.179vw, 1.5rem);
       line-height: 1.5;
       text-align: left;
     }
+  }
 
-    .skills-form {
-      // Spacing
-      margin: clamp(2rem, 1.053rem + 3.368vw, 4rem) 0;
-      width: 100%;
-    }
+  // Animation classes
+  .start-left-fade {
+    --animate: 1s ease forwards;
+    // Animate
+    animation: fadeInLeft var(--animate);
+    -webkit-animation: fadeInLeft var(--animate);
+    -moz-animation: fadeInLeft var(--animate);
+    -ms-animation: fadeInLeft var(--animate);
+    -o-animation: fadeInLeft var(--animate);
   }
 }
 
+// Animations
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Mobile layout
 @media screen and (max-width: 450px) {
-  .skills {
-    .skill-text {
-      line-height: 1.6;
-    }
+  #skills > p {
+    // Spacing
+    line-height: 1.6;
   }
 }
 
 // Desktop layout
 @media screen and (min-width: 1400px) {
-  .skills {
-    .skills-body {
-      margin-bottom: 4rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .skills-text {
-        width: 50%;
-        margin-right: 1rem;
-      }
-      .skills-form {
-        width: 50%;
-        margin-left: 2rem;
-      }
+  #skills > #skills-body {
+    // Spacing
+    margin-bottom: 4rem;
+    // Flexbox for layout
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      // Sizing
+      width: 90%;
+      // Spacing
+      margin-right: 16px;
+    }
+
+    #skills-form {
+      // Sizing
+      width: 50%;
+      // Spacing
+      margin-left: 32px;
     }
   }
 }

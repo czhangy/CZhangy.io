@@ -34,7 +34,7 @@
 
 <script>
 import emailjs from "emailjs-com";
-import Swal from 'sweetalert2'
+
 export default {
   name: "ContactForm",
   data() {
@@ -49,42 +49,12 @@ export default {
   },
   methods: {
     sendEmail() {
-      let error = false;
-      // Check
-      if (this.name === "") {
-        document.getElementsByClassName("top-input-field")[0].style.border =
-          "2px solid red";
-        error = true;
-      }
-      if (this.email === "") {
-        document.getElementsByClassName("top-input-field")[1].style.border =
-          "2px solid red";
-        error = true;
-      }
-      if (this.subject === "") {
-        document.getElementsByClassName("middle-input-field")[0].style.border =
-          "2px solid red";
-        error = true;
-      }
-      if (this.message === "") {
-        document.getElementsByClassName("bottom-input-field")[0].style.border =
-          "2px solid red";
-        error = true;
-      }
-      if (error) {
-        Swal.fire({
-          icon: "error",
-          title: "Please fill in all fields!",
-        });
-        return;
-      }
       var emailContents = {
         subject: this.subject,
         name: this.name,
         email: this.email,
         message: this.message,
       };
-      console.log(emailContents);
       emailjs
         .send(
           "service_pueof35",
@@ -152,11 +122,13 @@ export default {
         font-family: "Exo 2", Helvetica, Arial, sans-serif;
         // Border
         border-style: none;
+
         // Style placeholder coloring
         &::placeholder {
           color: white;
           opacity: 0.5;
         }
+
         // Style current field
         &:focus {
           background: darken(darkgrey, 40%);

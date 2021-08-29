@@ -172,8 +172,6 @@ export default {
       }
 
       .project-card-subtitle {
-        // Bring into 3d space
-        transform: $level-two;
         // Typography
         text-transform: uppercase;
         letter-spacing: 4px;
