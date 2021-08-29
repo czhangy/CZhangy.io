@@ -25,7 +25,7 @@
         type="submit"
         id="submit-button"
         class="button"
-        value="SUBMIT"
+        value="SEND!"
         readonly
       />
       <input v-else id="sent-button" class="button" value="SENT!" readonly />
@@ -152,6 +152,8 @@ export default {
   color: white;
   // Sizing
   min-height: 100vh;
+  // Container spacing
+  padding: 0 5%;
 
   .hide {
     // Hide initially
@@ -161,9 +163,8 @@ export default {
   #contact-title {
     // Spacing
     margin: 32px;
-    margin-left: 5%;
     // Typography
-    font-size: clamp(2rem, 1.053rem + 3.368vw, 4rem);
+    font-size: clamp(3rem, 2.444rem + 1.778vw, 4rem);
     font-weight: 200;
     // Alignment
     text-align: left;
@@ -181,12 +182,16 @@ export default {
     align-items: center;
     // Centering
     margin: 0 auto;
+    // Spacing
+    margin-top: 32px;
 
     .form-row {
       // Position elements
       display: flex;
       justify-content: center;
       align-items: center;
+      // Allow wrap on overflow
+      flex-wrap: wrap;
       // Sizing
       width: 100%;
       // Spacing
@@ -200,11 +205,13 @@ export default {
         background: rgba(darken(darkgrey, 40%), 0.7);
         // Typography
         color: white;
-        font-size: clamp(0.7rem, 0.321rem + 1.347vw, 1.5rem);
+        font-size: calc(max(1rem, clamp(0.7rem, 0.321rem + 1.347vw, 1.5rem)));
         font-family: $main-font;
         // Inner spacing
         padding: clamp(0.5rem, 0.263rem + 0.842vw, 1rem)
           clamp(1rem, 0.526rem + 1.684vw, 2rem);
+        // Smooth animation
+        transition: transform 0.5s ease;
 
         // Style placeholder coloring
         &::placeholder {
@@ -237,7 +244,6 @@ export default {
     #bottom-field > textarea {
       // Sizing
       width: 98%;
-      box-sizing: border-box;
     }
 
     #bottom-field > textarea {
@@ -248,9 +254,9 @@ export default {
     }
 
     p {
-        // Typography
-        font-size: 1.4rem;
-        color: red;
+      // Typography
+      font-size: 1.4rem;
+      color: red;
     }
 
     .button {
@@ -343,6 +349,35 @@ export default {
       background: white;
       color: black;
       font-weight: 400;
+    }
+  }
+}
+
+// Smaller layouts
+@media screen and (max-width: $tablet) {
+  #contact {
+    // Realign
+    align-items: center;
+
+    #contact-title {
+      // Underline
+      border-bottom: 2px solid white;
+      padding: 0 16px;
+      padding-bottom: 16px;
+    }
+
+    form {
+      #top-fields > input {
+        // Resize
+        width: 98%;
+        // Add spacing
+        margin-top: 16px;
+      }
+
+      #bottom-field > textarea {
+        // Resize
+        height: 10rem;
+      }
     }
   }
 }

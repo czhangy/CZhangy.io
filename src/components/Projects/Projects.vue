@@ -1,7 +1,7 @@
 <template>
   <div id="projects">
     <h1 id="projects-title" class="hide">What I've Done</h1>
-    <div id="projects-display">
+    <div id="projects-display" class="hide">
       <ProjectCard
         v-for="(project, index) in projects"
         :key="index"
@@ -90,15 +90,24 @@ export default {
           .getElementById("projects-title")
           .classList.add("start-right-fade");
     },
+    handleBottomFade: function () {
+      let top = window.pageYOffset + window.innerHeight;
+      if (top > document.querySelector("#projects-display").offsetTop + 100)
+        document
+          .getElementById("projects-display")
+          .classList.add("start-bottom-fade");
+    },
   },
   mounted() {
     // Constantly check if section is in viewport
     document.addEventListener("scroll", this.handleRightFade);
+    document.addEventListener("scroll", this.handleBottomFade);
   },
   beforeUnmount() {
     // Clean up
     document.removeEventListener("scroll", this.handleRightFade);
-  }
+    document.removeEventListener("scroll", this.handleBottomFade);
+  },
 };
 </script>
 
@@ -121,7 +130,7 @@ export default {
     margin: 32px;
     margin-right: 5%;
     // Typography
-    font-size: clamp(2rem, 1.053rem + 3.368vw, 4rem);
+    font-size: clamp(3rem, 2.444rem + 1.778vw, 4rem);
     font-weight: 200;
     // Alignment
     text-align: right;
@@ -137,17 +146,27 @@ export default {
     justify-content: space-evenly;
     flex-wrap: wrap;
   }
-}
 
-// Animation classes
-.start-right-fade {
-  --animate: 1s ease forwards;
-  // Animate
-  animation: fadeInRight var(--animate);
-  -webkit-animation: fadeInRight var(--animate);
-  -moz-animation: fadeInRight var(--animate);
-  -ms-animation: fadeInRight var(--animate);
-  -o-animation: fadeInRight var(--animate);
+  // Animation classes
+  .start-right-fade {
+    --animate: 1s ease forwards;
+    // Animate
+    animation: fadeInRight var(--animate);
+    -webkit-animation: fadeInRight var(--animate);
+    -moz-animation: fadeInRight var(--animate);
+    -ms-animation: fadeInRight var(--animate);
+    -o-animation: fadeInRight var(--animate);
+  }
+
+  .start-bottom-fade {
+    --animate: 2s ease forwards;
+    // Animate
+    animation: fadeInBottom var(--animate);
+    -webkit-animation: fadeInBottom var(--animate);
+    -moz-animation: fadeInBottom var(--animate);
+    -ms-animation: fadeInBottom var(--animate);
+    -o-animation: fadeInBottom var(--animate);
+  }
 }
 
 // Animations
@@ -163,10 +182,37 @@ export default {
   }
 }
 
+@keyframes fadeInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 // Workaround for background attachment on mobile
 @media (hover: none) {
   #projects {
     background-attachment: initial;
+  }
+}
+
+// Smaller layouts
+@media screen and (max-width: $tablet) {
+  #projects {
+    // Realign
+    align-items: center;
+
+    #projects-title {
+      // Underline
+      border-bottom: 2px solid white;
+      padding: 0 16px;
+      padding-bottom: 16px;
+    }
   }
 }
 </style>
