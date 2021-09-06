@@ -21,6 +21,5 @@ This project is currently under development. Design changes are planned for the 
 
 #### To Do:
 
-- [ ] Improve the design for the "About Me" page
-- [ ] Fix load times of images
+- [ ] Redesign project cards to flow better on mobile
 
