@@ -1,265 +1,198 @@
 <template>
-  <div class="project-card" @click="handleClick">
-    <div class="project-card-content">
-      <div class="project-card-front" :style="inlineStyling">
-        <h3 class="project-card-title">
-          {{ project.name }}
-        </h3>
-        <p class="project-card-subtitle">
-          {{ project.tag }}
-        </p>
+  <div class="project-card hide">
+    <div class="card-header">
+      <p class="card-name">{{ project.name }}</p>
+      <div class="card-icons">
+        <a class="card-icon github-icon" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+        <a class="card-icon link-icon" target="_blank">
+          <i class="fas fa-link"></i>
+        </a>
       </div>
-      <div class="project-card-back">
-        <div class="project-card-header">
-          <a class="card-icon github-icon" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-          <a class="card-icon link-icon" target="_blank">
-            <i class="fas fa-link"></i>
-          </a>
-        </div>
-        <hr class="separator" />
-        <p class="project-card-body">
-          {{ project.description }}
-        </p>
-      </div>
+    </div>
+    <p class="card-category">{{ project.category }}</p>
+    <hr />
+    <div class="card-tags">
+      <Tag :name="tag" v-for="(tag, i) in project.tags" :key="i" />
     </div>
   </div>
 </template>
 
 <script>
+// Import local components
+import Tag from "./Tag.vue";
+
 export default {
   name: "ProjectCard",
+  components: {
+    Tag,
+  },
   props: {
     project: {
       type: Object,
+      required: true,
     },
     index: {
-      type: null,
+      type: Number,
+      required: true,
     },
   },
-  computed: {
-    bgImage() {
-      if (this.index == 0)
-        return require("@/assets/img/projects/bruinbyte.jpg");
-      else if (this.index === 1)
-        return require("@/assets/img/projects/bruinshack.jpg");
-      else if (this.index === 2)
-        return require("@/assets/img/projects/splekbot.png");
-      else if (this.index === 3)
-        return require("@/assets/img/projects/amplificationproject.png")
-      else if (this.index === 4)
-        return require("@/assets/img/projects/survivalguides.jpeg")
-      else if (this.index === 5)
-      return require("@/assets/img/projects/darsplusplus.jpg")
+  methods: {
+    handleLinkAssignment: function () {
+      /* eslint no-unexpected-multiline: "off" */
+      if (this.project.links[0].length > 0)
+        document
+          .getElementsByClassName("github-icon")
+          [this.index].setAttribute("href", this.project.links[0]);
+      else
+        document.getElementsByClassName("github-icon")[
+          this.index
+        ].style.display = "none";
+      if (this.project.links[1].length > 0)
+        document
+          .getElementsByClassName("link-icon")
+          [this.index].setAttribute("href", this.project.links[1]);
+      else
+        document.getElementsByClassName("link-icon")[this.index].style.display =
+          "none";
     },
-    inlineStyling() {
-      return {
-        backgroundImage: `url(${this.bgImage})`,
-      };
+    // Animation function
+    handleBottomFade: function () {
+      let top = window.pageYOffset + window.innerHeight;
+      if (
+        top >
+        document.getElementsByClassName("project-card")[this.index].offsetTop +
+          100
+      )
+        document
+          .getElementsByClassName("project-card")
+          [this.index].classList.add("start-bottom-fade");
     },
   },
   mounted() {
-    /* eslint no-unexpected-multiline: "off" */
-    if (this.project.links[0].length > 0)
-      document
-        .getElementsByClassName("github-icon")
-        [this.index].setAttribute("href", this.project.links[0]);
-    else
-      document.getElementsByClassName("github-icon")[this.index].style.display =
-        "none";
-    if (this.project.links[1].length > 0)
-      document
-        .getElementsByClassName("link-icon")
-        [this.index].setAttribute("href", this.project.links[1]);
-    else
-      document.getElementsByClassName("link-icon")[this.index].style.display =
-        "none";
+    // Bind available hrefs to links
+    this.handleLinkAssignment();
+    // Constantly check if section is in viewport
+    document.addEventListener("scroll", this.handleBottomFade);
   },
-  methods: {
-    handleClick() {
-      this.isFlipped = !this.isFlipped;
-      if (this.isFlipped) {
-        document.getElementsByClassName("project-card-content")[
-          this.index
-        ].style.transform = "rotateY(0.5turn)";
-      } else
-        document.getElementsByClassName("project-card-content")[
-          this.index
-        ].style.transform = "none";
-    },
-  },
-  data() {
-    return {
-      isFlipped: false,
-    };
+  beforeUnmount() {
+    // Clean up
+    document.removeEventListener("scroll", this.handleBottomFade);
   },
 };
 </script>
 
 <style lang="scss" scoped>
+// Special font
 @import url("https://fonts.googleapis.com/css?family=Oswald:400,700");
 
 .project-card {
   // Sizing
-  height: clamp(18rem, 12.316rem + 20.211vw, 30rem);
-  width: clamp(15rem, 10.263rem + 16.842vw, 25rem);
-  // Typography
-  font-family: "Oswald", sans-serif;
-  // Spacing
-  margin: clamp(2rem, 0.579rem + 5.053vw, 5rem);
-  // Cursor
-  cursor: pointer;
+  width: calc(min(80%, 700px));
+  // Centering + spacing
+  margin: 48px auto;
+  // Card styling
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  // Border
+  box-shadow: 0 0 30px $glow-color;
+  // Inner spacing
+  padding: 16px 24px;
 
-  .project-card-content {
-    // Sizing
-    width: clamp(15rem, 10.263rem + 16.842vw, 25rem);
+  .card-header {
+    // Flexbox for layout
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     // Typography
-    text-align: center;
-    // Positioning
-    position: relative;
+    color: white;
+    text-transform: uppercase;
+    font-size: calc(clamp(1rem, -0.141rem + 2.381vw, 2rem));
+    text-align: left;
+    font-family: Oswald;
+    font-weight: bold;
     // Spacing
-    padding: 0;
-    // Animation
-    transition: transform 2s;
-    transform-style: preserve-3d;
+    margin: 8px 0;
 
-    .project-card-front,
-    .project-card-back {
-      // Sizing
-      height: clamp(18rem, 12.316rem + 20.211vw, 30rem);
-      width: clamp(15rem, 10.263rem + 16.842vw, 25rem);
-      // Positioning
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      // Spacing
-      padding: 0 3em;
-      // Position elements
-      display: grid;
-      align-content: center;
-      // Hide backwards text
-      backface-visibility: hidden;
-      // Border
-      box-shadow: 0 0 30px #2187e7b3;
-    }
+    .card-icons {
+      --icon-size: calc(clamp(1rem, 0.429rem + 1.19vw, 1.5rem));
+      // Centering
+      line-height: var(--icon-size);
 
-    .project-card-front {
-      // Background
-      background-color: $card-color;
-      background-size: cover;
-      background-blend-mode: overlay;
-      background-position: center;
-      // Position elements
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      // Border
-      border: 3px solid white;
-      // For border
-      color: #333;
-
-      .project-card-title {
-        // Typography
-        font-size: clamp(2rem, 1.526rem + 1.684vw, 3rem);
-        margin: 2rem 0;
+      .card-icon {
+        // Spacing
+        margin-left: 16px;
+        // Icon styling
         color: white;
-        text-shadow: 2px 2px black;
-        text-transform: uppercase;
-      }
-
-      .project-card-subtitle {
-        // Typography
-        text-transform: uppercase;
-        letter-spacing: 4px;
-        font-size: clamp(0.7rem, 0.558rem + 0.505vw, 1rem);
-        font-weight: 700;
-        color: white;
-        text-shadow: 1px 1px black;
-      }
-
-      &:before {
-        // Positioning;
-        content: "";
-        position: absolute;
-        top: 1em;
-        bottom: 1em;
-        left: 1em;
-        right: 1em;
-        // Border
-        border: 3px solid white;
-      }
-    }
-
-    .project-card-back {
-      // Animate
-      transform: rotateY(0.5turn);
-      // Typography
-      color: $card-color;
-      // Background
-      background: #333;
-      // Border
-      border: 3px solid white;
-      // Position elements
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      .project-card-header {
-        // Position elements
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        // Sizing icons
-        font-size: clamp(1rem, 0.526rem + 1.684vw, 2rem);
-        margin-top: 1rem;
-
-        .card-icon {
-          color: $card-color;
-          margin: 0 3rem;
-        }
-      }
-
-      .separator {
-        // Get bar
-        height: 2px;
-        width: 60%;
-        margin: 0.6rem 0;
-      }
-
-      .project-card-body {
-        // Typography
-        font-weight: 400;
-        font-size: clamp(0.8rem, 0.468rem + 1.179vw, 1.5rem);
-        line-height: 1.6;
-        text-align: left;
-        margin-bottom: 2rem;
-        height: 70%;
+        font-size: var(--icon-size);
       }
     }
   }
+
+  hr {
+    // Sizing
+    width: 40%;
+  }
+
+  .card-category {
+    // Typography
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-family: Oswald;
+    // Alignment
+    text-align: left;
+    // Spacing
+    margin-bottom: 8px;
+  }
+
+  .card-tags {
+    // Flexbox for layout
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    // Sizing
+    width: 100%;
+    // Spacing
+    margin-top: 16px;
+  }
 }
 
-// Handle sticky hover
+.hide {
+  // Hide initially
+  opacity: 0;
+}
+
+.start-bottom-fade {
+  --animate: 2s ease forwards;
+  // Animate
+  animation: fadeInBottom var(--animate);
+  -webkit-animation: fadeInBottom var(--animate);
+  -moz-animation: fadeInBottom var(--animate);
+  -ms-animation: fadeInBottom var(--animate);
+  -o-animation: fadeInBottom var(--animate);
+}
+
+// Animations
+@keyframes fadeInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Sticky hover
 @media (hover: hover) {
-  .project-card {
-    .project-card-content {
-      .project-card-back {
-        .project-card-header {
-          .card-icon {
-            &:hover {
-              transform: scale(1.1);
-            }
-          }
-        }
-      }
+  .project-card > .card-header > .card-icons > .card-icon {
+    &:hover {
+      // Animate
+      color: $glow-color;
     }
   }
 }
-
-// Mobile sizing
 </style>

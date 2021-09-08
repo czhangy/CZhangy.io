@@ -266,7 +266,7 @@ export default {
       height: clamp(3rem, 2.053rem + 3.368vw, 5rem);
       width: clamp(9rem, 6.158rem + 10.105vw, 15rem);
       // Spacing
-      margin-top: 32px;
+      margin: 32px 0;
       // Typography
       color: white;
       font-family: $main-font;

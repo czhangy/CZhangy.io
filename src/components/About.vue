@@ -92,7 +92,7 @@ export default {
     justify-content: center;
     align-items: center;
     // Sizing
-    width: 70%;
+    width: 80%;
 
     img {
       // Spacing
