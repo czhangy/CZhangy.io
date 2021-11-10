@@ -4,15 +4,15 @@
       <p class="card-name">{{ project.name }}</p>
       <div class="card-icons">
         <a class="card-icon github-icon" target="_blank">
-          <i class="fab fa-github"></i>
+          <i class="fab fa-github" />
         </a>
         <a class="card-icon link-icon" target="_blank">
-          <i class="fas fa-link"></i>
+          <i class="fas fa-link" />
         </a>
       </div>
     </div>
     <p class="card-category">{{ project.category }}</p>
-    <hr />
+    <hr class="card-divider"/>
     <div class="card-tags">
       <Tag :name="tag" v-for="(tag, i) in project.tags" :key="i" />
     </div>
@@ -130,7 +130,7 @@ export default {
     }
   }
 
-  hr {
+  .card-divider {
     // Sizing
     width: 40%;
   }
@@ -188,8 +188,17 @@ export default {
 
 // Sticky hover
 @media (hover: hover) {
-  .project-card > .card-header > .card-icons > .card-icon {
+  .project-card {
+    // Smooth transition
+    transition: box-shadow 0.2s ease;
+    cursor: pointer;
+
     &:hover {
+      // Animate
+      box-shadow: 0 0 100px $glow-color;
+    }
+
+    .card-header > .card-icons > .card-icon:hover {
       // Animate
       color: $glow-color;
     }

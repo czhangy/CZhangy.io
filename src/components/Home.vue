@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <div id="home-picture"></div>
+    <div id="home-picture" />
     <div id="home-text">
       <h1 id="home-title">Hi, I'm Charles.</h1>
       <hr class="separator" />
@@ -10,38 +10,36 @@
           class="social-icon"
           target="_blank"
         >
-          <i class="fab fa-github"></i>
+          <i class="fab fa-github" />
         </a>
         <a
           href="https://www.linkedin.com/in/charles-zhang-14746519b/"
           class="social-icon"
           target="_blank"
-          ><i class="fab fa-linkedin"></i
-        ></a>
+          ><i class="fab fa-linkedin" /></a>
         <a
           href="https://twitter.com/czhangy_"
           class="social-icon"
           target="_blank"
-          ><i class="fab fa-twitter"></i
-        ></a>
+          ><i class="fab fa-twitter" /></a>
         <a
           href="https://www.facebook.com/charles.zhang.14268769/"
           class="social-icon"
           target="_blank"
-          ><i class="fab fa-facebook"></i
-        ></a>
+          ><i class="fab fa-facebook" /></a>
         <a
           href="https://www.instagram.com/c.zhangg/"
           class="social-icon"
           target="_blank"
-          ><i class="fab fa-instagram"></i
-        ></a>
+          ><i class="fab fa-instagram" /></a>
       </div>
       <hr class="separator" />
       <div class="nav-row">
-        <button @click="onClick('about')">ABOUT</button>
-        <button @click="onClick('skills')">SKILLS</button>
-        <button @click="onClick('projects')">PROJECTS</button>
+        <button class="nav-button" @click="onClick('about')">ABOUT</button>
+        <button class="nav-button" @click="onClick('skills')">SKILLS</button>
+        <button class="nav-button" @click="onClick('projects')">
+          PROJECTS
+        </button>
       </div>
     </div>
   </div>
@@ -127,11 +125,11 @@ export default {
         cursor: pointer;
         // Spacing
         margin: 0 clamp(0.5rem, 0.026rem + 1.684vw, 1.5rem);
-        // For hover
-        transition: all ease-in-out 0.3s;
+        // Smooth animation
+        transition: transform ease-in-out 0.3s;
       }
 
-      button {
+      .nav-button {
         // Spacing
         margin: 0 clamp(0.2rem, -0.274rem + 1.684vw, 1.2rem);
         padding: 0.6rem 0.4rem;
@@ -142,7 +140,7 @@ export default {
         text-decoration: none;
         color: white;
         // Smooth animation
-        transition: all ease-in-out 0.3s;
+        transition: transform ease-in-out 0.3s;
         // Remove default styling
         background: transparent;
         border: none;
@@ -169,11 +167,9 @@ export default {
 // Handle sticky hover
 @media (hover: hover) {
   #home > #home-text > .nav-row {
-    button {
-      &:hover {
-        // Animate
-        transform: scale(1.1);
-      }
+    .nav-button:hover {
+      // Animate
+      transform: scale(1.1);
     }
 
     .social-icon {
@@ -182,34 +178,24 @@ export default {
         transform: scale(1.1);
       }
 
-      .fa-github {
-        &:hover {
-          color: $github-primary;
-        }
+      .fa-github:hover {
+        color: $github-primary;
       }
 
-      .fa-linkedin {
-        &:hover {
-          color: $linkedin-primary;
-        }
+      .fa-linkedin:hover {
+        color: $linkedin-primary;
       }
 
-      .fa-twitter {
-        &:hover {
-          color: $twitter-primary;
-        }
+      .fa-twitter:hover {
+        color: $twitter-primary;
       }
 
-      .fa-facebook {
-        &:hover {
-          color: $facebook-primary;
-        }
+      .fa-facebook:hover {
+        color: $facebook-primary;
       }
 
-      .fa-instagram {
-        &:hover {
-          color: $instagram-primary;
-        }
+      .fa-instagram:hover {
+        color: $instagram-primary;
       }
     }
   }
