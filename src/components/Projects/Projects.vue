@@ -91,6 +91,24 @@ export default {
             "MongoDB",
           ],
         },
+        {
+          name: "Squirdle",
+          category: "Full-stack Development",
+          links: [
+            "https://github.com/czhangy/squirdle",
+            "http://squirdle.herokuapp.com/",
+          ],
+          tags: [
+            "Vue.js",
+            "HTML",
+            "CSS",
+            "SASS",
+            "JavaScript",
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+          ],
+        },
       ],
     };
   },
