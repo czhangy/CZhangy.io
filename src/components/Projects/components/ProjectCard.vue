@@ -191,7 +191,6 @@ export default {
   .project-card {
     // Smooth transition
     transition: box-shadow 0.2s ease;
-    cursor: pointer;
 
     &:hover {
       // Animate
